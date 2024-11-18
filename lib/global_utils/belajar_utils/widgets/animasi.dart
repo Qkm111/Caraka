@@ -143,7 +143,7 @@ class Animasi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Coba Tulis'),
+                          Text("Coba' tolès"),
                         ],
                       )),
                 ),
@@ -167,7 +167,7 @@ class Animasi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Kembali'),
+                          Text('Abhâli'),
                         ],
                       )),
                 ),

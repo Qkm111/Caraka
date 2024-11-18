@@ -48,7 +48,7 @@ class _MenuState extends State<Menu> {
                     Icons.menu_book_outlined,
                     size: 30,
                   ),
-                  label: 'Belajar'),
+                  label: 'Ajhâr'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.quiz_outlined), label: 'Kuis'),
               BottomNavigationBarItem(

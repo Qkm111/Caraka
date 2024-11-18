@@ -249,7 +249,7 @@ class _CustomDState extends State<CustomD> {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Kembali ke Animasi'),
+                          Text("Abhâli dâ' animasi"),
                         ],
                       )),
                 ),

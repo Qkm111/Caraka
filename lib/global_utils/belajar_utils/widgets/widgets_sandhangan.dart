@@ -57,7 +57,7 @@ class Sandhangan extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     content: Container(
-                      height: 500,
+                      height: 200,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -77,13 +77,20 @@ class Sandhangan extends StatelessWidget {
                       ),
                     ),
                     actions: [
-                      TextButton(
+                      ElevatedButton(
                         onPressed: (){
                           Navigator.pop(context);
                         },
                         child: Text(
-                          'Kembali',
-                        ))
+                          'Abhâli',
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber
+                        ),
+                      )
                     ],
                   )
                 );

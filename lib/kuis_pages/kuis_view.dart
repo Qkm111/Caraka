@@ -155,7 +155,7 @@ class _DashboardKuisState extends State<DashboardKuis> {
                         height: 200,
                       ),
                       Text(
-                        'Kuis dulu yukk!!',
+                        'Ollèna kuis',
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )
@@ -196,7 +196,7 @@ class _DashboardKuisState extends State<DashboardKuis> {
                   point: _pangangghuyScore.toString(),
                   name: 'Kuis Pangangghuy',
                   navigate: KuisPangangghuy(),
-                  color: Color(0xFFCDB699),
+                  color: Color(0xFFFFE1AF),
                 ),
                 SizedBox(height: 10,),
                 Padding(

@@ -94,7 +94,7 @@ class ListGajang extends StatelessWidget {
                         height: 200,
                       ),
                       Text(
-                        'Pencet panah kaangghuy nojjhu da animasi',
+                        'Tekan pana kaangguy matao animasi',
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )

@@ -209,7 +209,7 @@ class _KuisGajangState extends State<KuisGajang> {
                         : NextButton(
                           onPressed:
                             selectedAnswerIndex != null ? Selanjutnya : null,
-                          label: 'Selanjutnya',
+                          label: 'Terrosanna',
                         )
                     ],
                   )

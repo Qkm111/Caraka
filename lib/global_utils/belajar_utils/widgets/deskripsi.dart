@@ -144,7 +144,7 @@ class Deskripsi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Congngo Selengkappah'),
+                          Text('Oladhi terosanna'),
                         ],
                       )),
                 ),
