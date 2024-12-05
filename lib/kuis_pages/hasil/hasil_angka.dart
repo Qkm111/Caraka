@@ -198,7 +198,7 @@ class _HasilAngkaState extends State<HasilAngka> {
                       ),
                       child: Center(
                         child: Text(
-                          'Kembali ke Dashboard',
+                          'Abhâli ka Dashboard',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

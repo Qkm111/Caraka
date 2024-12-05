@@ -24,9 +24,9 @@ class _HasilPangangghuyState extends State<HasilPangangghuy> {
   }
   String getResultText(int skorAkhir) {
     if (skorAkhir >= 4) {
-      return 'Wow keren!! Selamat, kamu berhasil';
+      return "Wow keren! Selamet bâ'na berhasil";
     } else {
-      return 'Hampir saja! Yuk belajar lagi. Semangatt';
+      return "Ampon parak, yuk ajhâr polè";
     }
   }
 
@@ -198,7 +198,7 @@ class _HasilPangangghuyState extends State<HasilPangangghuy> {
                       ),
                       child: Center(
                         child: Text(
-                          'Kembali ke Dashboard',
+                          'Abhâli ka Dashboard',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

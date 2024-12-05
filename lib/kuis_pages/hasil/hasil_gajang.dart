@@ -23,10 +23,10 @@ class _HasilGajangState extends State<HasilGajang> {
     }
   }
   String getResultText(int skorAkhir) {
-    if (skorAkhir >= 5) {
-      return 'Wow keren!! Selamat, kamu berhasil';
+    if (skorAkhir >= 4) {
+      return "Wow keren! Selamet bâ'na berhasil";
     } else {
-      return 'Hampir saja! Yuk belajar lagi. Semangatt';
+      return "Ampon parak, yuk ajhâr polè";
     }
   }
 
@@ -199,7 +199,7 @@ class _HasilGajangState extends State<HasilGajang> {
                       ),
                       child: Center(
                         child: Text(
-                          'Kembali ke Dashboard',
+                          'Abhâli ka Dashboard',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

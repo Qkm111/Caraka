@@ -204,12 +204,12 @@ class _KuisRekaanState extends State<KuisRekaan> {
                             onPressed: () {
                               _quizSelesai();
                             },
-                          label: 'Selesai',
+                          label: 'Lastareh',
                         )
                         : NextButton(
                           onPressed:
                             selectedAnswerIndex != null ? Selanjutnya : null,
-                          label: 'Selanjutnya',
+                          label: 'Terosanna',
                         )
                     ],
                   )

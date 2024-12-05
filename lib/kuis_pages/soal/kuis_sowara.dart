@@ -204,12 +204,12 @@ class _KuisSowaraState extends State<KuisSowara> {
                             onPressed: () {
                               _quizSelesai();
                             },
-                          label: 'Selesai',
+                          label: 'Lastareh',
                         )
                         : NextButton(
                           onPressed:
                             selectedAnswerIndex != null ? Selanjutnya : null,
-                          label: 'Selanjutnya',
+                          label: 'Terosanna',
                         )
                     ],
                   )

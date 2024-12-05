@@ -204,12 +204,12 @@ class _KuisGajangState extends State<KuisGajang> {
                             onPressed: () {
                               _quizSelesai();
                             },
-                          label: 'Selesai',
+                          label: 'Lastareh',
                         )
                         : NextButton(
                           onPressed:
                             selectedAnswerIndex != null ? Selanjutnya : null,
-                          label: 'Terrosanna',
+                          label: 'Terosanna',
                         )
                     ],
                   )
