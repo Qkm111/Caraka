@@ -27,6 +27,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: const Color(0xFFFFFFFF),
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(

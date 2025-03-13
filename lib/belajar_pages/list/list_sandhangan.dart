@@ -25,7 +25,7 @@ class ListSandhangan extends StatelessWidget {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 1300,
+                  height: MediaQuery.of(context).size.height + 556,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
