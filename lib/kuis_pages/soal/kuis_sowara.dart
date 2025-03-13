@@ -39,7 +39,7 @@ class _KuisSowaraState extends State<KuisSowara> {
     setState(() {});
   }
 
-  void Selanjutnya() {
+  void selanjutnya() {
     if (questionIndex < pertanyaanSowara.length - 1) {
       questionIndex++;
       selectedAnswerIndex = null;
@@ -208,7 +208,7 @@ class _KuisSowaraState extends State<KuisSowara> {
                         )
                         : NextButton(
                           onPressed:
-                            selectedAnswerIndex != null ? Selanjutnya : null,
+                            selectedAnswerIndex != null ? selanjutnya : null,
                           label: 'Terosanna',
                         )
                     ],
