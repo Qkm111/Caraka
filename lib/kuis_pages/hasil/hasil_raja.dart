@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 
 class HasilRaja extends StatefulWidget {
-
-    final int skorAkhir;
+  final int skorAkhir;
 
   const HasilRaja({
     super.key,
@@ -16,22 +17,26 @@ class HasilRaja extends StatefulWidget {
 class _HasilRajaState extends State<HasilRaja> {
 
   String getResultImage(int skorAkhir) {
-    if (skorAkhir >= 5) {
+    if (skorAkhir == 5) {
       return 'assets/ic_character/berhasil.png';
     } else {
       return 'assets/ic_character/gagal.png';
     }
   }
-  String getResultText(int skorAkhir) {
-    if (skorAkhir >= 4) {
-      return "Wow keren! Selamet bâ'na berhasil";
+
+  String getResultTextKey(int skorAkhir) {
+    if (skorAkhir == 5) {
+      return 'hasilberhasil';
     } else {
-      return "Ampon parak, yuk ajhâr polè";
+      return 'hasilgagal';
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
+    final String resultKey = getResultTextKey(widget.skorAkhir);
+
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: const Size.fromHeight(0),
@@ -87,7 +92,7 @@ class _HasilRajaState extends State<HasilRaja> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Hasil Kuis',
+                              penerjemah.translate('headerhasil'),
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -102,7 +107,7 @@ class _HasilRajaState extends State<HasilRaja> {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD77FA1),
+                      color: Color(0xFFF8B195), // Warna Card Hasil Raja
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
@@ -119,11 +124,12 @@ class _HasilRajaState extends State<HasilRaja> {
                           Image.asset(getResultImage(widget.skorAkhir)),
                           const SizedBox(height: 10,),
                           Text(
-                            getResultText(widget.skorAkhir),
+                            penerjemah.translate(resultKey),
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14
                             ),
+                            textAlign: TextAlign.center,
                           )
                         ],
                       ),
@@ -134,7 +140,7 @@ class _HasilRajaState extends State<HasilRaja> {
                     height: 90,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD77FA1),
+                      color: Color(0xFFF8B195), // Warna Card Skor Raja
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
@@ -179,8 +185,9 @@ class _HasilRajaState extends State<HasilRaja> {
                   ),
                   const SizedBox(height: 20,),
                   TextButton(
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
                     onPressed: () {
-                      Navigator.pop(context, widget.skorAkhir);
+                      Navigator.pop(context);
                     },
                     child: Container(
                       height: 50,
@@ -198,22 +205,21 @@ class _HasilRajaState extends State<HasilRaja> {
                       ),
                       child: Center(
                         child: Text(
-                          'Abhâli ka Dashboard',
+                          penerjemah.translate('tombolbackkuis'),
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
-                            fontWeight: FontWeight.w100
+                            fontWeight: FontWeight.w500
                           ),
                         ),
                       ),
                     )
-                  )
+                  ),
+                   SizedBox(height: 40),
                 ],
               ),
             ),
           ),
-        ]
-      )
-    );
+        ]));
   }
 }

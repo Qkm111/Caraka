@@ -1,4 +1,6 @@
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Deskripsi extends StatelessWidget {
   final Color warna;
@@ -16,6 +18,7 @@ class Deskripsi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),
@@ -144,7 +147,7 @@ class Deskripsi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Oladhi terosanna'),
+                          Text(penerjemah.translate('tomboldeskripsi')),
                         ],
                       )),
                 ),

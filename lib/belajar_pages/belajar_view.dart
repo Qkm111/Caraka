@@ -1,19 +1,23 @@
 import 'package:caraka/global_utils/belajar_utils/widgets/deskripsi.dart';
 import 'package:caraka/global_utils/belajar_utils/widgets/listbelajar.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DashboardBelajar extends StatelessWidget {
-  const DashboardBelajar({super.key});
+   DashboardBelajar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
-      backgroundColor: const Color(0xFFFF0000),
+      backgroundColor:  Color(0xFFFF0000),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize:  Size.fromHeight(0),
           child: AppBar(
-            backgroundColor: const Color(0xFFF00000),
-          )),
+            backgroundColor:  Color(0xFFF00000),
+          )
+        ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -22,12 +26,12 @@ class DashboardBelajar extends StatelessWidget {
                 Container(
                   height: 120,
                   width: MediaQuery.of(context).size.width,
-                  color: const Color(0xFFFF0000),
+                  color:  Color(0xFFFF0000),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -37,24 +41,24 @@ class DashboardBelajar extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20.0, left: 20),
+              padding:  EdgeInsets.only(right: 20.0, left: 20),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 56.0),
+                  padding:  EdgeInsets.only(top: 56.0),
                   child: Container(
                     height: 133,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: const Color(0xFFFF8080),
+                        color:  Color(0xFFFF8080),
                         borderRadius: BorderRadius.circular(16)),
-                    child: const Padding(
+                    child:  Padding(
                       padding: EdgeInsets.all(12),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Slamet Rabu',
+                            penerjemah.translate('bannerbelajar'),
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w900,
@@ -73,7 +77,7 @@ class DashboardBelajar extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
+             Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -83,7 +87,7 @@ class DashboardBelajar extends StatelessWidget {
                         height: 200,
                       ),
                       Text(
-                        'Éyatoré ajhâr aksara',
+                        penerjemah.translate('ajakanbelajar'),
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )
@@ -97,7 +101,7 @@ class DashboardBelajar extends StatelessWidget {
                     warna: Color(0xFFD77FA1),
                     thumbnail: 'assets/ic_menu/dashboard-gejeng.png',
                     judul: 'Aksara Gâjâng',
-                    deskripsi: 'Aksara gâjâng èngghi panèka horof dasar dâlem carakan madhurâ, bâdâ 20 macèm aksara. Ènyâmâi aksara gâjâng âmârghâ horof dasar ghi’ tadhâ’ pangangguy okara.',
+                    deskripsi: penerjemah.translate('deskripsigajang'),
                     search: '/gajang'),
                   color: Color(0xFFD77FA1),
                 ),
@@ -108,7 +112,7 @@ class DashboardBelajar extends StatelessWidget {
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_menu/dashboard-angka.png',
                     judul: 'Aksara Angka',
-                    deskripsi: 'Aksara angka (tong-bitongan) èngghi panèka macem aksara sè èghuna’aghi dâlèm bhâsâ Madhurâ ka’angguy nyerrat angka. Aksara angka bâdâ 10 macèm dhâri angka 0 sampè’ 9.',
+                    deskripsi: penerjemah.translate('deskripsiangka'),
                     search: '/angka'
                   ),
                   color: Color(0xFF9EA1D4),
@@ -120,7 +124,7 @@ class DashboardBelajar extends StatelessWidget {
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_menu/dashboard-raja.png',
                     judul: 'Aksara Rajâ',
-                    deskripsi: 'Aksara rajâ èngghi panèka horof kapital dâlèm carakan madhurâ, tapè ta’ sakabbhina aksara gâjâng bâdâ aksara rajânâ. Aksara gâjâng sè ghâdhuwân aksara rajâ bânnya’na 8 horof.',
+                    deskripsi: penerjemah.translate('deskripsiraja'),
                     search: '/raja'
                   ),
                   color: Color(0xFFF8B195),
@@ -132,7 +136,7 @@ class DashboardBelajar extends StatelessWidget {
                     warna: Color(0xFFA8D1D1),
                     thumbnail: 'assets/ic_menu/dashboard-rekan.png',
                     judul: 'Aksara Rekaan',
-                    deskripsi: 'Ètarèk dâri oca’ rèkaan sè ghâdhuwân artè karangan, saèngghana bisa è artèâghi aksara rèkaan èngghi panèka horof sè èrèka otabâ è rèkayasa. Aksara rèkaan panèka aksara sè tadhâ’ è kompolanna aksara gâjâng, otabâ èkannèng koca’ aksara tambâ’ân.',
+                    deskripsi: penerjemah.translate('deskripsirekaan'),
                     search: '/rekaan'
                   ),
                   color: Color(0xFFA8D1D1),
@@ -144,7 +148,7 @@ class DashboardBelajar extends StatelessWidget {
                       warna: Color(0xFFCDB699),
                       thumbnail: 'assets/ic_menu/dashboard-sowara.png',
                       judul: 'Aksara Sowara',
-                      deskripsi: 'Aksara sowara bânnya’na bâdâ lèma’ èghuna’âghi ka’angghuy horof kapital nyama kota/tâmpat, horof kapital nyama orèng, horof kapital nyama bulân, bân horof kapital nyama naghârâ.',
+                      deskripsi: penerjemah.translate('deskripsisowara'),
                       search: '/sowara'
                   ),
                     color: Color(0xFFCDB699)),
@@ -155,10 +159,11 @@ class DashboardBelajar extends StatelessWidget {
                       warna: Color(0xFFFFE1AF),
                       thumbnail: 'assets/ic_menu/dashboard-sandhangan.png',
                       judul: 'Pangangguy',
-                      deskripsi: 'Pangangguy Okara (panambâ bân papatèn) èngghi panèka tandâ diakritik kâ’ângghuy ngobè bunyi dâri aksara gâjâng. Aksara sè ta’ gâdhuwân pangangguy è lafal aghi akadhie gabungan antara konsonan bân vokal a. Pangangguy okara bâdâ 12 macèm',
+                      deskripsi: penerjemah.translate('deskripsipangangguy'),
                       search: '/sandhangan'
+                      ),
+                    color: Color(0xFFFFE1AF)
                   ),
-                    color: Color(0xFFFFE1AF))
               ],
             ),
           ],

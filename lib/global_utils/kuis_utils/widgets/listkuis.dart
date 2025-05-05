@@ -4,37 +4,39 @@ import 'package:flutter/widgets.dart';
 class ListKuis extends StatelessWidget {
   final String point;
   final String name;
-  final Widget navigate;
+  final VoidCallback? onTap; // Ganti dari Widget navigate
   final Color color;
 
-  const ListKuis(
-      {required this.name,
+  const ListKuis({
+      super.key, // Tambah super.key
+      required this.name,
       required this.point,
-      required this.navigate,
-      required this.color});
+      this.onTap, // Ganti dari required navigate
+      required this.color
+      });
 
   @override
   Widget build(BuildContext context) {
-    void _navigateKuis(BuildContext context, Widget navigate) {
-      Navigator.push(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => navigate,
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return child; // Tanpa animasi
-          },
-        ),
-      );
-    }
+    // Fungsi _navigateKuis dihapus
 
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16),
-      child: GestureDetector(
-        onTap: () =>_navigateKuis(context, navigate),
+      child: GestureDetector( // Tetap pakai GestureDetector sesuai kodemu
+        onTap: onTap, // Panggil callback onTap
         child: Container(
           height: 88,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.only(left: 20),
+          decoration: BoxDecoration( // Hapus const jika color tidak const
+              borderRadius: BorderRadius.circular(16),
+              color: color,
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.25),
+                    blurRadius: 4,
+                    spreadRadius: 0,
+                    offset: const Offset(0, 4))
+              ]),
           child: Row(
             children: [
               Padding(
@@ -66,7 +68,7 @@ class ListKuis extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 40,
+                width: 40, // Ukuran tetap
               ),
               Expanded(
                 child: Text(
@@ -77,24 +79,14 @@ class ListKuis extends StatelessWidget {
                       color: Colors.white),
                 ),
               ),
-              IconButton(
-                  onPressed: () => _navigateKuis(context, navigate),
+              IconButton( // Tetap pakai IconButton sesuai kodemu
+                  onPressed: onTap, // Panggil callback onTap juga
                   icon: const Icon(
                     Icons.arrow_forward,
                     color: Colors.white,
                   ))
             ],
           ),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: color,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(0.25),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    offset: const Offset(0, 4))
-              ]),
         ),
       ),
     );

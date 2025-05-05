@@ -37,8 +37,6 @@ class ListMenu extends StatelessWidget {
       );
     }
 
-    ;
-
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16),
       child: GestureDetector(

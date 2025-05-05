@@ -4,7 +4,8 @@ class ModelTanya {
   final List<String> pilihan;
   final int jawabanBenar;
 
-  const ModelTanya({
+  // Hapus const karena list di bawahnya jadi non-const
+   ModelTanya({
     required this.soal,
     required this.subsoal,
     required this.pilihan,
@@ -13,12 +14,13 @@ class ModelTanya {
 }
 
 //Soal Kuis Gajang
-const List<ModelTanya> pertanyaanGajang = [
+// Hapus const
+ List<ModelTanya> pertanyaanGajang = [
   ModelTanya(
-    soal: 'Oca’ ”calana” obâ dâ’ tolèsan carakan madhurâ!',
+    soal: 'soal_gajang_1', // Key terjemahan
     subsoal: '',
     jawabanBenar: 1,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabgajang1-1.png',
       'assets/banksoal/jawabgajang1-2.png',
       'assets/banksoal/jawabgajang1-3.png',
@@ -26,10 +28,10 @@ const List<ModelTanya> pertanyaanGajang = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalgajang2.png',
-    subsoal: "ponapa aksara latènna okara carakan ka’dinto?",
+    soal: 'assets/banksoal/soalgajang2.png', // Path aset dibiarkan
+    subsoal: "subsoal_gajang_2", // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Bajana',
       'Ngacara',
       'Ngakana',
@@ -37,21 +39,21 @@ const List<ModelTanya> pertanyaanGajang = [
     ]
   ),
   ModelTanya(
-    soal: 'Bâdâ saponapa macemma aksara gâjâng?',
+    soal: 'soal_gajang_3', // Key terjemahan
     subsoal: '',
     jawabanBenar: 3,
-    pilihan: [
-      '26 macem',
-      '15 macem',
-      '32 macem',
-      '20 macem'
+    pilihan: [ // Key terjemahan
+      'pilihan_gajang_3_0',
+      'pilihan_gajang_3_1',
+      'pilihan_gajang_3_2',
+      'pilihan_gajang_3_3'
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalgajang4.png',
-    subsoal: 'Horof napa panèka?',
+    soal: 'assets/banksoal/soalgajang4.png', // Path aset dibiarkan
+    subsoal: 'subsoal_gajang_4', // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'na',
       'gha',
       'ka',
@@ -59,10 +61,10 @@ const List<ModelTanya> pertanyaanGajang = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalgajang5.png',
-    subsoal: 'Horof Ponapa Panèka?',
+    soal: 'assets/banksoal/soalgajang5.png', // Path aset dibiarkan
+    subsoal: 'subsoal_gajang_5', // Key terjemahan
     jawabanBenar: 1,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'sa',
       'dha',
       'ya',
@@ -72,12 +74,13 @@ const List<ModelTanya> pertanyaanGajang = [
 ];
 
 //Soal Kuis Angka
-const List<ModelTanya> pertanyaanAngka = [
+// Hapus const
+ List<ModelTanya> pertanyaanAngka = [
   ModelTanya(
-    soal: 'assets/banksoal/soalangka1.png',
-    subsoal: 'Ponapa aksara latènna okara carakanka’dinto?',
+    soal: 'assets/banksoal/soalangka1.png', // Path aset dibiarkan
+    subsoal: 'subsoal_angka_1', // Key terjemahan
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       '1945',
       '1965',
       '1942',
@@ -85,10 +88,10 @@ const List<ModelTanya> pertanyaanAngka = [
     ]
   ),
   ModelTanya(
-    soal: '17 Agustus kamardhika’an Bhangsa Indonèsia. Tolèsan aksara angka 17 iyâ arèya?',
+    soal: 'soal_angka_2', // Key terjemahan
     subsoal: '',
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabangka2-1.png',
       'assets/banksoal/jawabangka2-2.png',
       'assets/banksoal/jawabangka2-3.png',
@@ -96,10 +99,10 @@ const List<ModelTanya> pertanyaanAngka = [
     ]
   ),
   ModelTanya(
-    soal: '“17-08-1945” obâ dâ’ tolèsan carakan madhurâ!',
+    soal: 'soal_angka_3', // Key terjemahan
     subsoal: '',
     jawabanBenar: 1,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabangka3-1.png',
       'assets/banksoal/jawabangka3-2.png',
       'assets/banksoal/jawabangka3-3.png',
@@ -107,10 +110,10 @@ const List<ModelTanya> pertanyaanAngka = [
     ]
   ),
   ModelTanya(
-    soal: 'Aksara angka bâdâ saponapa?',
+    soal: 'soal_angka_4', // Key terjemahan
     subsoal: '',
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       '10 angka',
       '9 angka',
       '12 angka',
@@ -118,10 +121,10 @@ const List<ModelTanya> pertanyaanAngka = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalangka5.png',
-    subsoal: 'Ponapa aksara latènna okara carakan ka’dinto? ',
+    soal: 'assets/banksoal/soalangka5.png', // Path aset dibiarkan
+    subsoal: 'subsoal_angka_5', // Key terjemahan
     jawabanBenar: 3,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       '2022',
       '2023',
       '2024',
@@ -131,12 +134,13 @@ const List<ModelTanya> pertanyaanAngka = [
 ];
 
 //Soal Kuis Raja
-const List<ModelTanya> pertanyaanRaja = [
+// Hapus const
+ List<ModelTanya> pertanyaanRaja = [
   ModelTanya(
-    soal: 'Aksara carakan madhurâ sè ghâdhuwân aksara rajâ namong coma bâdâ?',
+    soal: 'soal_raja_1', // Key terjemahan
     subsoal: '',
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       '8',
       '7',
       '9',
@@ -144,10 +148,10 @@ const List<ModelTanya> pertanyaanRaja = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalraja2.png',
-    subsoal: 'horof ponapa panèka?',
+    soal: 'assets/banksoal/soalraja2.png', // Path aset dibiarkan
+    subsoal: 'subsoal_raja_2', // Key terjemahan
     jawabanBenar: 3,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Sa',
       'Pa',
       'Ta',
@@ -155,21 +159,21 @@ const List<ModelTanya> pertanyaanRaja = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalraja3.png',
-    subsoal: 'ponapa aksara latènna okara carakan ka’dinto?',
+    soal: 'assets/banksoal/soalraja3.png', // Path aset dibiarkan
+    subsoal: 'subsoal_raja_3', // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
-      'pamakasan',
-      'priyangan',
-      'pasuruan',
-      'probolinggo'
+    pilihan: [ // Teks tanpa key dibiarkan
+      'Pamakasan',
+      'Priyangan',
+      'Pasuruan',
+      'Probolinggo'
     ]
   ),
   ModelTanya(
-    soal: 'Oca’ ”Madina” obâ dâ’ tolèsan carakan madhurâ!',
+    soal: 'soal_raja_4', // Key terjemahan
     subsoal: '',
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabraja4-1.png',
       'assets/banksoal/jawabraja4-2.png',
       'assets/banksoal/jawabraja4-3.png',
@@ -177,25 +181,26 @@ const List<ModelTanya> pertanyaanRaja = [
     ]
   ),
   ModelTanya(
-    soal: 'oca’ sè aghuna’aghi aksara rajâ èngghi panèka ..... bân .....',
+    soal: 'soal_raja_5', // Key terjemahan
     subsoal: '',
     jawabanBenar: 1,
-    pilihan: [
-      'nyama bulân, nyama taon', 
-      'nyama orèng, nyama tèmpat',
-      'nyama kèben, nyama taneman',
-      'nyama tempat, nyama taon'
+    pilihan: [ // Key terjemahan
+      'pilihan_raja_5_0',
+      'pilihan_raja_5_1',
+      'pilihan_raja_5_2',
+      'pilihan_raja_5_3'
     ]
   ),
 ];
 
 //Soal Kuis Rekaan
-const List<ModelTanya> pertanyaanRekaan = [
+// Hapus const
+ List<ModelTanya> pertanyaanRekaan = [
   ModelTanya(
-    soal: 'Bâdâ saponapa aksara rèkaan carakan madhurâ?',
+    soal: 'soal_rekaan_1', // Key terjemahan
     subsoal: '',
     jawabanBenar: 1,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       '3',
       '5',
       '4',
@@ -203,21 +208,21 @@ const List<ModelTanya> pertanyaanRekaan = [
     ]
   ),
   ModelTanya(
-    soal: 'Aksara rekaan ka’angguy nyerrat?',
+    soal: 'soal_rekaan_2', // Key terjemahan
     subsoal: '',
     jawabanBenar: 2,
-    pilihan: [
-      "Ca’-oca' serrebbhâ dri jhâbâ",
-      "Ca'-oca' serrebbhâ dâri Mlayu",
-      "Ca'-oca' serrebbhâ dâri Arab",
-      "Ca'-oca' serrebbhâ dâri Bhâsa Daèrah"
+    pilihan: [ // Key terjemahan
+      'pilihan_rekaan_2_0',
+      'pilihan_rekaan_2_1',
+      'pilihan_rekaan_2_2',
+      'pilihan_rekaan_2_3'
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalrekaan3.png',
-    subsoal: 'Ponapa aksara latènna okara carakan ka’dinto?',
+    soal: 'assets/banksoal/soalrekaan3.png', // Path aset dibiarkan
+    subsoal: 'subsoal_rekaan_3', // Key terjemahan
     jawabanBenar: 3,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'zamzam',
       'zaman',
       'zakat',
@@ -225,10 +230,10 @@ const List<ModelTanya> pertanyaanRekaan = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalrekaan4.png',
-    subsoal: 'Horof ponapa panèka?',
+    soal: 'assets/banksoal/soalrekaan4.png', // Path aset dibiarkan
+    subsoal: 'subsoal_rekaan_4', // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Fa',
       'Za',
       'Ha',
@@ -236,10 +241,10 @@ const List<ModelTanya> pertanyaanRekaan = [
     ]
   ),
   ModelTanya(
-    soal: 'oca’ “Dzuhur” obâ dâ’ tolèsan aksara carakan madhurâ!',
+    soal: 'soal_rekaan_5', // Key terjemahan
     subsoal: '',
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabrekaan5-1.png',
       'assets/banksoal/jawabrekaan5-2.png',
       'assets/banksoal/jawabrekaan5-3.png',
@@ -249,23 +254,24 @@ const List<ModelTanya> pertanyaanRekaan = [
 ];
 
 //Soal Kuis Sowara
-const List<ModelTanya> pertanyaanSowara = [
+// Hapus const
+ List<ModelTanya> pertanyaanSowara = [
   ModelTanya(
-    soal: 'bâdâ saponapa aksara sowara panèka?',
+    soal: 'soal_sowara_1', // Key terjemahan
     subsoal: '',
     jawabanBenar: 3,
-    pilihan: [
-      'Bâdâ duwe’',
-      'Bâdâ tello’',
-      'Bâdâ empa’',
-      'Bâdâ lèma’'
+    pilihan: [ // Key terjemahan
+      'pilihan_sowara_1_0',
+      'pilihan_sowara_1_1',
+      'pilihan_sowara_1_2',
+      'pilihan_sowara_1_3'
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalsowara2.png',
-    subsoal: 'Ponapa artè latènna carakan ka’dinto?',
+    soal: 'assets/banksoal/soalsowara2.png', // Path aset dibiarkan
+    subsoal: 'subsoal_sowara_2', // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Inggris',
       'Jakarta',
       'Indonesia',
@@ -273,21 +279,22 @@ const List<ModelTanya> pertanyaanSowara = [
     ]
   ),
   ModelTanya(
-    soal: 'Aksara sowara ..... dâlèm aksara gâjâng',
+    soal: 'soal_sowara_3', // Key terjemahan
     subsoal: '',
     jawabanBenar: 1,
-    pilihan: [
-      'bâgiân',
-      'ta’ tamaso’',
-      'sabâgiân',
-      'panèkâ'
+    pilihan: [ // Key terjemahan
+      'pilihan_sowara_3_0',
+      'pilihan_sowara_3_1',
+      'pilihan_sowara_3_2',
+      'pilihan_sowara_3_3'
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalsowara4.png',
-    subsoal: '',
+    soal: 'assets/banksoal/soalsowara4.png', // Path aset dibiarkan
+    // Sesuai AppLocalization, key-nya 'soal_sowara_4', bukan 'subsoal'
+    subsoal: 'soal_sowara_4', // Key terjemahan (disesuaikan dengan AppLocalization)
     jawabanBenar: 1,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'i',
       'u',
       'e',
@@ -295,10 +302,10 @@ const List<ModelTanya> pertanyaanSowara = [
     ]
   ),
   ModelTanya(
-    soal: 'èyatorè oca’ “Amalia” tolès dâ’ aksara carakanna',
+    soal: 'soal_sowara_5', // Key terjemahan
     subsoal: '',
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Path aset dibiarkan
       'assets/banksoal/jawabsowara5-1.png',
       'assets/banksoal/jawabsowara5-2.png',
       'assets/banksoal/jawabsowara5-3.png',
@@ -308,12 +315,13 @@ const List<ModelTanya> pertanyaanSowara = [
 ];
 
 //Soal Kuis Pangangghuy
-const List<ModelTanya> pertanyaanPangangghuy = [
+// Hapus const
+ List<ModelTanya> pertanyaanPangangghuy = [
   ModelTanya(
-    soal: 'assets/banksoal/soalpangangghuy1.png',
-    subsoal: 'Ponapa aksara latènna okara carakanka’dinto?',
+    soal: 'assets/banksoal/soalpangangghuy1.png', // Path aset dibiarkan
+    subsoal: 'subsoal_pangangghuy_1', // Key terjemahan
     jawabanBenar: 3,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Tèdung',
       'Sekolah',
       'Ka Pasar',
@@ -321,10 +329,10 @@ const List<ModelTanya> pertanyaanPangangghuy = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalpangangghuy2.png',
-    subsoal: 'Ponapa aksara latènna okara carakan ka’dinto?',
+    soal: 'assets/banksoal/soalpangangghuy2.png', // Path aset dibiarkan
+    subsoal: 'subsoal_pangangghuy_2', // Key terjemahan
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Ka Pasar',
       'Sekolah',
       'Asakola',
@@ -332,10 +340,10 @@ const List<ModelTanya> pertanyaanPangangghuy = [
     ]
   ),
   ModelTanya(
-    soal: 'assets/banksoal/soalpangangghuy3.png',
-    subsoal: 'Ponapa aksara latènna okara carakan ka’dinto?',
+    soal: 'assets/banksoal/soalpangangghuy3.png', // Path aset dibiarkan
+    subsoal: 'subsoal_pangangghuy_3', // Key terjemahan
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Sèkolah',
       'Ka pasar',
       'Tèdung',
@@ -343,24 +351,24 @@ const List<ModelTanya> pertanyaanPangangghuy = [
     ]
   ),
   ModelTanya(
-    soal: "Ka'angghuy nyèrrat kèccap (e) aghuna'aghi pangangghuy sowara?",
+    soal: "soal_pangangghuy_4", // Key terjemahan
     subsoal: '',
     jawabanBenar: 2,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Lèngè',
       'Lèngè-longo',
-      'Metpet ',
+      'Metpet ', // Mungkin ada spasi ekstra di akhir? Biarkan dulu sesuai asli
       'Soko'
     ]
   ),
   ModelTanya(
-    soal: "Ka'angghuy nyèrrat kèccap (è) aghuna'aghi pangangghuy sowara?",
+    soal: "soal_pangangghuy_5", // Key terjemahan
     subsoal: '',
     jawabanBenar: 0,
-    pilihan: [
+    pilihan: [ // Teks tanpa key dibiarkan
       'Lèngè',
       'Lèngè-longo',
-      'Metpet ',
+      'Metpet ', // Mungkin ada spasi ekstra di akhir? Biarkan dulu sesuai asli
       'Soko'
     ]
   ),

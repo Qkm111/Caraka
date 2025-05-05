@@ -1,20 +1,22 @@
 import 'package:caraka/global_utils/belajar_utils/widgets/animasi.dart';
 import 'package:caraka/global_utils/belajar_utils/drawer/customdraw.dart';
 import 'package:caraka/global_utils/belajar_utils/widgets/listbelajar.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListAngka extends StatelessWidget {
-  const ListAngka({super.key});
+  ListAngka({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
-      backgroundColor: const Color(0xFFFF0000),
+      backgroundColor: Color(0xFFFF0000),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
-          child: AppBar(
-            backgroundColor: const Color(0xFFF00000),
-          )),
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(backgroundColor: Color(0xFFF00000)),
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -23,60 +25,62 @@ class ListAngka extends StatelessWidget {
                 Container(
                   height: 120,
                   width: MediaQuery.of(context).size.width,
-                  color: const Color(0xFFFF0000),
+                  color: Color(0xFFFF0000),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 1300,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)),
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20.0, left: 20),
+              padding: EdgeInsets.only(right: 20.0, left: 20),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 56.0),
+                  padding: EdgeInsets.only(top: 56.0),
                   child: Container(
                     height: 133,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: const Color(0xFF9EA1D4),
-                        borderRadius: BorderRadius.circular(16)),
+                      color: Color(0xFF9EA1D4),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Padding(
                       padding: EdgeInsets.all(20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(
-                                Icons.navigate_before,
-                                color: Colors.white,
-                              )),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.navigate_before,
+                              color: Colors.white,
+                            ),
+                          ),
                           Text(
                             'Aksara Angka',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                            ),
                           ),
-                          SizedBox(
-                            width: 8,
-                          ),
+                          SizedBox(width: 8),
                           Image.asset(
                             'assets/ic_menu/dashboard-angka.png',
                             height: 72,
                             width: 72,
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -84,20 +88,20 @@ class ListAngka extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
+            Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 200,
-                      ),
+                      SizedBox(height: 200),
                       Text(
-                        'Tekan pana kaangguy matao animasi',
+                        penerjemah.translate('petunjukanimasi'),
                         style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.bold),
-                      )
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -107,17 +111,18 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/0.png',
-                    judul: 'Nolès "0"',
+                    // Menggunakan penerjemah untuk judul animasi
+                    judul: penerjemah.translate('judul_angka_0_animasi'),
                     animasi: 'https://caraka11.web.app/aksara_angka/0.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/0.gif',
-                      judul: 'Nolès "0"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/0.gif',
+                      // Menggunakan penerjemah untuk judul draw
+                      judul: penerjemah.translate('judul_angka_0_draw'),
                       modelgambar: 'assets/bg_draw/angka/0.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '1',
@@ -125,17 +130,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/1.png',
-                    judul: 'Nolès "1"',
+                    judul: penerjemah.translate(
+                      'judul_angka_1_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/1.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/1.gif',
-                      judul: 'Nolès "1"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/1.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_1_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/1.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '2',
@@ -143,17 +151,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/2.png',
-                    judul: 'Nolès "2"',
+                    judul: penerjemah.translate(
+                      'judul_angka_2_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/2.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/2.gif',
-                      judul: 'Nolès "2"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/2.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_2_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/2.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '3',
@@ -161,17 +172,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/3.png',
-                    judul: 'Nolès "3"',
+                    judul: penerjemah.translate(
+                      'judul_angka_3_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/3.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/3.gif',
-                      judul: 'Nolès "3"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/3.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_3_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/3.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '4',
@@ -179,17 +193,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/4.png',
-                    judul: 'Nolès "4"',
+                    judul: penerjemah.translate(
+                      'judul_angka_4_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/4.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/4.gif',
-                      judul: 'Nolès "4"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/4.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_4_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/4.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '5',
@@ -197,17 +214,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/5.png',
-                    judul: 'Nolès "5"',
+                    judul: penerjemah.translate(
+                      'judul_angka_5_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/5.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/5.gif',
-                      judul: 'Nolès "5"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/5.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_5_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/5.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '6',
@@ -215,17 +235,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/6.png',
-                    judul: 'Nolès "6"',
+                    judul: penerjemah.translate(
+                      'judul_angka_6_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/6.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/6.gif',
-                      judul: 'Nolès "6"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/6.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_6_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/6.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '7',
@@ -233,17 +256,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/7.png',
-                    judul: 'Nolès "7"',
+                    judul: penerjemah.translate(
+                      'judul_angka_7_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/7.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/7.gif',
-                      judul: 'Nolès "7"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/7.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_7_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/7.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '8',
@@ -251,17 +277,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/8.png',
-                    judul: 'Nolès "8"',
+                    judul: penerjemah.translate(
+                      'judul_angka_8_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/8.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/8.gif',
-                      judul: 'Nolès "8"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/8.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_8_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/8.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
                 ListMenu(
                   name: '9',
@@ -269,17 +298,20 @@ class ListAngka extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFF9EA1D4),
                     thumbnail: 'assets/ic_angka/9.png',
-                    judul: 'Nolès "9"',
+                    judul: penerjemah.translate(
+                      'judul_angka_9_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_angka/9.gif',
                     navigate: CustomD(
                       warna: Color(0xFF9EA1D4),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_angka/9.gif',
-                      judul: 'Nolès "9"',
+                      thumbnail: 'https://caraka11.web.app/aksara_angka/9.gif',
+                      judul: penerjemah.translate(
+                        'judul_angka_9_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/angka/9.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFF9EA1D4)
+                  color: Color(0xFF9EA1D4),
                 ),
               ],
             ),

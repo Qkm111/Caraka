@@ -7,6 +7,8 @@ import 'package:caraka/kuis_pages/soal/kuis_sowara.dart';
 import 'package:caraka/kuis_pages/soal/kuis_pangangghuy.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 
 class DashboardKuis extends StatefulWidget {
   const DashboardKuis({super.key});
@@ -29,63 +31,55 @@ class _DashboardKuisState extends State<DashboardKuis> {
     _loadScore();
   }
 
-  void _updateScore() async{
+  Future<void> _loadScore() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _gajangScore;
-      _angkaScore;
-      _rajaScore;
-      _rekaanScore;
-      _sowaraScore;
-      _pangangghuyScore;
-    });
-    await prefs.setInt('scoreGajang', _gajangScore);
-    await prefs.setInt('scoreAngka', _angkaScore);
-    await prefs.setInt('scoreRaja', _rajaScore);
-    await prefs.setInt('scoreRekaan', _rekaanScore);
-    await prefs.setInt('scoreSowara', _sowaraScore);
-    await prefs.setInt('scorePangangghuy', _pangangghuyScore);
+    if (mounted) {
+      setState(() {
+        _gajangScore = prefs.getInt('scoreGajang') ?? 0;
+        _angkaScore = prefs.getInt('scoreAngka') ?? 0;
+        _rajaScore = prefs.getInt('scoreRaja') ?? 0;
+        _rekaanScore = prefs.getInt('scoreRekaan') ?? 0;
+        _sowaraScore = prefs.getInt('scoreSowara') ?? 0;
+        _pangangghuyScore = prefs.getInt('scorePangangghuy') ?? 0;
+      });
+    }
   }
 
-  void _loadScore() async {
+  Future<void> _resetScores() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _gajangScore = prefs.getInt('scoreGajang') ?? 0;
-      _angkaScore = prefs.getInt('scoreAngka') ?? 0;
-      _rajaScore = prefs.getInt('scoreRaja') ?? 0;
-      _rekaanScore = prefs.getInt('scoreRekaan') ?? 0;
-      _sowaraScore = prefs.getInt('scoreSowara') ?? 0;
-      _pangangghuyScore = prefs.getInt('scorePangangghuy') ?? 0;
-    });
+     await prefs.remove('scoreGajang');
+     await prefs.remove('scoreAngka');
+     await prefs.remove('scoreRaja');
+     await prefs.remove('scoreRekaan');
+     await prefs.remove('scoreSowara');
+     await prefs.remove('scorePangangghuy');
+     _loadScore();
   }
 
-  void _resetScores() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _gajangScore = 0;
-      _angkaScore = 0;
-      _rajaScore = 0;
-      _rekaanScore = 0;
-      _sowaraScore = 0;
-      _pangangghuyScore = 0;
-    });
-    await prefs.setInt('scoreGajang', 0);
-    await prefs.setInt('scoreAngka', 0);
-    await prefs.setInt('scoreRaja', 0);
-    await prefs.setInt('scoreRekaan', 0);
-    await prefs.setInt('scoreSowara', 0);
-    await prefs.setInt('scorePangangghuy', 0);
+  Future<void> _navigateToQuiz(Widget quizPage) async {
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => quizPage,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return child; // Tetap tanpa animasi transisi sesuai kodemu
+        },
+      ),
+    );
+    _loadScore(); // Load skor lagi setelah kembali
   }
 
 
   @override
   Widget build(BuildContext context) {
+     final penerjemah = context.watch<AppLocalization>();
+
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: const Color(0xFFF00000),
-        )
+          )
       ),
       backgroundColor: const Color(0xFFFF0000),
       body: SingleChildScrollView(
@@ -100,6 +94,7 @@ class _DashboardKuisState extends State<DashboardKuis> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
+                  // Tinggi container putih sesuai kodemu
                   height: MediaQuery.of(context).size.height + 100,
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -110,104 +105,100 @@ class _DashboardKuisState extends State<DashboardKuis> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 56.0),
-                  child: Container(
-                    height: 133,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: const Color(0xFFFF8080),
-                        borderRadius: BorderRadius.circular(16)),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20),
+                  child: Align(
+                    alignment: Alignment.topCenter,
                     child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Kuis Carakan',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white),
+                      padding: const EdgeInsets.only(top: 56.0),
+                      child: Container(
+                        height: 133,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFFF8080),
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Kuis Carakan',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w900,
+                                    color: Colors.white),
+                              ),
+                              const SizedBox(
+                                width: 30,
+                              ),
+                              Image.asset('assets/ic_character/quiz.png')
+                            ],
                           ),
-                          const SizedBox(
-                            width: 30,
-                          ),
-                          Image.asset('assets/ic_character/quiz.png')
-                        ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
+                 Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 200,
-                      ),
                       Text(
-                        'Ollèna kuis',
+                        penerjemah.translate('ajakankuis'), // Pakai terjemahan
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
                 ),
+                // List Kuis (padding sudah ada di dalam ListKuis)
                 ListKuis(
                   point: _gajangScore.toString(),
-                  name: 'Kuis Gâjâng',
-                  navigate: KuisGajang(),
+                  name: 'Kuis Gâjâng', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisGajang()), // Pakai onTap
                   color: Color(0xFFD77FA1),
                 ),
                 ListKuis(
                   point: _angkaScore.toString(),
-                  name: 'Kuis Angka',
-                  navigate: KuisAngka(),
+                  name: 'Kuis Angka', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisAngka()),
                   color: Color(0xFF9EA1D4),
                 ),
                 ListKuis(
                   point: _rajaScore.toString(),
-                  name: 'Kuis Rajâ',
-                  navigate: KuisRaja(),
+                  name: 'Kuis Rajâ', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisRaja()),
                   color: Color(0xFFF8B195),
                 ),
                 ListKuis(
                   point: _rekaanScore.toString(),
-                  name: 'Kuis Rekaan',
-                  navigate: KuisRekaan(),
+                  name: 'Kuis Rekaan', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisRekaan()),
                   color: Color(0xFFA8D1D1),
                 ),
                 ListKuis(
                   point: _sowaraScore.toString(),
-                  name: 'Kuis Sowara',
-                  navigate: KuisSowara(),
+                  name: 'Kuis Sowara', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisSowara()),
                   color: Color(0xFFCDB699),
                 ),
                 ListKuis(
                   point: _pangangghuyScore.toString(),
-                  name: 'Kuis Pangangghuy',
-                  navigate: KuisPangangghuy(),
+                  name: 'Kuis Pangangghuy', // TODO: Ganti ke key terjemahan jika sudah ditambah
+                  onTap: () => _navigateToQuiz(KuisPangangghuy()),
                   color: Color(0xFFFFE1AF),
                 ),
-                SizedBox(height: 10,),
-                Padding(
+                 SizedBox(height: 10,), // SizedBox sesuai kodemu
+                 Padding( // Tombol Reset
                   padding: const EdgeInsets.all(20.0),
                   child: SizedBox(
                     height: 36,
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {
-                          _resetScores();
-                        },
+                        onPressed: _resetScores,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF00000),
                             foregroundColor: Colors.white,
@@ -216,11 +207,11 @@ class _DashboardKuisState extends State<DashboardKuis> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.delete),
+                            Icon(Icons.delete), // Tetap icon delete
                             SizedBox(
                               width: 10,
                             ),
-                            Text('Reset Nilai'),
+                            Text(penerjemah.translate('tombolreset')), // Pakai terjemahan
                           ],
                         )),
                   ),

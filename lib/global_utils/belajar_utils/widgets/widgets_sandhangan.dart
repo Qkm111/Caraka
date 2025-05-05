@@ -1,4 +1,6 @@
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Sandhangan extends StatelessWidget {
   final String image;
@@ -16,6 +18,7 @@ class Sandhangan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     precacheImage(AssetImage(image), context);
 
     void navigateDialog(BuildContext context) {
@@ -52,7 +55,7 @@ class Sandhangan extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'Abhâli',
+                      penerjemah.translate('tombolback'),
                       style: TextStyle(color: Colors.white),
                     ),
                     style:

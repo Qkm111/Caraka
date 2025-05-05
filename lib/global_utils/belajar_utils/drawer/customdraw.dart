@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caraka/global_utils/belajar_utils/model/modeldraw.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomD extends StatefulWidget {
   final Color warna;
@@ -29,6 +31,7 @@ class _CustomDState extends State<CustomD> {
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),
@@ -249,7 +252,7 @@ class _CustomDState extends State<CustomD> {
                           SizedBox(
                             width: 10,
                           ),
-                          Text("Abhâli dâ' animasi"),
+                          Text(penerjemah.translate('tombolbackdraw')),
                         ],
                       )),
                 ),

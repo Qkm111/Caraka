@@ -1,19 +1,22 @@
 import 'package:caraka/global_utils/belajar_utils/widgets/animasi.dart';
 import 'package:caraka/global_utils/belajar_utils/drawer/customdraw.dart';
 import 'package:caraka/global_utils/belajar_utils/widgets/listbelajar.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListGajang extends StatelessWidget {
-  const ListGajang({super.key});
+   ListGajang({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
-      backgroundColor: const Color(0xFFFF0000),
+      backgroundColor:  Color(0xFFFF0000),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize:  Size.fromHeight(0),
           child: AppBar(
-            backgroundColor: const Color(0xFFF00000),
+            backgroundColor:  Color(0xFFF00000),
           )),
       body: SingleChildScrollView(
         child: Stack(
@@ -23,12 +26,12 @@ class ListGajang extends StatelessWidget {
                 Container(
                   height: 120,
                   width: MediaQuery.of(context).size.width,
-                  color: const Color(0xFFFF0000),
+                  color:  Color(0xFFFF0000),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 2300,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -38,16 +41,16 @@ class ListGajang extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20.0, left: 20),
+              padding:  EdgeInsets.only(right: 20.0, left: 20),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 56.0),
+                  padding:  EdgeInsets.only(top: 56.0),
                   child: Container(
                     height: 133,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: const Color(0xFFFD77FA1),
+                        color:  Color(0xFFFD77FA1),
                         borderRadius: BorderRadius.circular(16)),
                     child: Padding(
                       padding: EdgeInsets.all(20),
@@ -84,7 +87,7 @@ class ListGajang extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
+            Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -94,7 +97,7 @@ class ListGajang extends StatelessWidget {
                         height: 200,
                       ),
                       Text(
-                        'Tekan pana kaangguy matao animasi',
+                        penerjemah.translate('petunjukanimasi'),
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       )
@@ -107,15 +110,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/a.png',
-                        judul: 'Nolès "a"',
+                        judul: penerjemah.translate('judul_a_animasi'), // Menggunakan translate
                         animasi: 'https://caraka11.web.app/aksara_gajang/a.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/a.gif',
-                          judul: 'Nolès "a"',
-                          modelgambar: 'assets/bg_draw/gajang/a.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/a.gif',
+                            judul: penerjemah.translate('judul_a_draw'), // Menggunakan translate
+                            modelgambar: 'assets/bg_draw/gajang/a.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'na',
@@ -123,15 +126,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/na.png',
-                        judul: 'Nolès "na"',
+                        judul: penerjemah.translate('judul_na_animasi'), // Menggunakan translate
                         animasi: 'https://caraka11.web.app/aksara_gajang/na.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/na.gif',
-                          judul: 'Penulisan "na"',
-                          modelgambar: 'assets/bg_draw/gajang/na.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/na.gif',
+                            judul: penerjemah.translate('judul_na_draw'), // Menggunakan translate
+                            modelgambar: 'assets/bg_draw/gajang/na.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ca',
@@ -139,15 +142,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ca.png',
-                        judul: 'Nolès "na"',
+                        judul: penerjemah.translate('judul_ca_animasi'), // Menggunakan translate
                         animasi: 'https://caraka11.web.app/aksara_gajang/ca.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ca.gif',
-                          judul: 'Nolès "ca"',
-                          modelgambar: 'assets/bg_draw/gajang/ca.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ca.gif',
+                            judul: penerjemah.translate('judul_ca_draw'), // Menggunakan translate
+                            modelgambar: 'assets/bg_draw/gajang/ca.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ra',
@@ -155,31 +158,31 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ra.png',
-                        judul: 'Nolès "ra"',
+                        judul: penerjemah.translate('judul_ra_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ra.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ra.gif',
-                          judul: 'Nolès "ra"',
-                          modelgambar: 'assets/bg_draw/gajang/ra.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ra.gif',
+                            judul: penerjemah.translate('judul_ra_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ra.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
-                ListMenu(
+                 ListMenu(
                     name: 'ka',
                     image: 'assets/ic_gajang/ka.png',
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ka.png',
-                        judul: 'Nolès "ka"',
+                        judul: penerjemah.translate('judul_ka_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ka.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ka.gif',
-                          judul: 'Nolès "ka"',
-                          modelgambar: 'assets/bg_draw/gajang/ka.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ka.gif',
+                            judul: penerjemah.translate('judul_ka_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ka.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'da',
@@ -187,15 +190,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/da.png',
-                        judul: 'Nolès "da"',
+                        judul: penerjemah.translate('judul_da_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/da.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/da.gif',
-                          judul: 'Nolès "da"',
-                          modelgambar: 'assets/bg_draw/gajang/da.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/da.gif',
+                            judul: penerjemah.translate('judul_da_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/da.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ta',
@@ -203,15 +206,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ta.png',
-                        judul: 'Nolès "ta"',
+                        judul: penerjemah.translate('judul_ta_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ta.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ta.gif',
-                          judul: 'Nolès "ta"',
-                          modelgambar: 'assets/bg_draw/gajang/ta.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ta.gif',
+                            judul: penerjemah.translate('judul_ta_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ta.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'sa',
@@ -219,15 +222,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/sa.png',
-                        judul: 'Nolès "sa"',
+                        judul: penerjemah.translate('judul_sa_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/sa.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/sa.gif',
-                          judul: 'Nolès "sa"',
-                          modelgambar: 'assets/bg_draw/gajang/sa.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/sa.gif',
+                            judul: penerjemah.translate('judul_sa_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/sa.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'wa',
@@ -235,47 +238,48 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/wa.png',
-                        judul: 'Nolès "wa"',
+                        judul: penerjemah.translate('judul_wa_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/wa.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/wa.gif',
-                          judul: 'Nolès "wa"',
-                          modelgambar: 'assets/bg_draw/gajang/wa.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/wa.gif',
+                            judul: penerjemah.translate('judul_wa_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/wa.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'la',
-                    image: 'assets/ic_gajang/a.png',
+                    // Perbaiki path image jika perlu, sebelumnya a.png
+                    image: 'assets/ic_gajang/la.png',
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/la.png',
-                        judul: 'Nolès "la"',
+                        judul: penerjemah.translate('judul_la_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/la.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/la.gif',
-                          judul: 'Nolès "la"',
-                          modelgambar: 'assets/bg_draw/gajang/la.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/la.gif',
+                            judul: penerjemah.translate('judul_la_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/la.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
-                ListMenu(
+                 ListMenu(
                     name: 'pa',
                     image: 'assets/ic_gajang/pa.png',
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/pa.png',
-                        judul: 'Nolès "pa"',
+                        judul: penerjemah.translate('judul_pa_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/pa.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/pa.gif',
-                          judul: 'Nolès "pa"',
-                          modelgambar: 'assets/bg_draw/gajang/pa.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/pa.gif',
+                            judul: penerjemah.translate('judul_pa_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/pa.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'dha',
@@ -283,15 +287,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/dha.png',
-                        judul: 'Nolès "dha"',
+                        judul: penerjemah.translate('judul_dha_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/dha.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/dha.gif',
-                          judul: 'Nolès "dha"',
-                          modelgambar: 'assets/bg_draw/gajang/dha.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/dha.gif',
+                            judul: penerjemah.translate('judul_dha_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/dha.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ja',
@@ -299,15 +303,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ja.png',
-                        judul: 'Nolès "ja"',
+                        judul: penerjemah.translate('judul_ja_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ja.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ja.gif',
-                          judul: 'Nolès "ja"',
-                          modelgambar: 'assets/bg_draw/gajang/ja.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ja.gif',
+                            judul: penerjemah.translate('judul_ja_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ja.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ya',
@@ -315,15 +319,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ya.png',
-                        judul: 'Nolès "ya"',
+                        judul: penerjemah.translate('judul_ya_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ya.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ya.gif',
-                          judul: 'Nolès "ya"',
-                          modelgambar: 'assets/bg_draw/gajang/ya.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ya.gif',
+                            judul: penerjemah.translate('judul_ya_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ya.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'nya',
@@ -331,15 +335,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/nya.png',
-                        judul: 'Nolès "nya"',
+                        judul: penerjemah.translate('judul_nya_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/nya.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/nya.gif',
-                          judul: 'Nolès "nya"',
-                          modelgambar: 'assets/bg_draw/gajang/nya.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/nya.gif',
+                            judul: penerjemah.translate('judul_nya_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/nya.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ma',
@@ -347,15 +351,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ma.png',
-                        judul: 'Nolès "ma"',
+                        judul: penerjemah.translate('judul_ma_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ma.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ma.gif',
-                          judul: 'Nolès "ma"',
-                          modelgambar: 'assets/bg_draw/gajang/ma.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ma.gif',
+                            judul: penerjemah.translate('judul_ma_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ma.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'ga',
@@ -363,31 +367,31 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ga.png',
-                        judul: 'Nolès "ga"',
+                        judul: penerjemah.translate('judul_ga_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ga.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ga.gif',
-                          judul: 'Nolès "ga"',
-                          modelgambar: 'assets/bg_draw/gajang/ga.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ga.gif',
+                            judul: penerjemah.translate('judul_ga_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ga.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
-                ListMenu(
+                 ListMenu(
                     name: 'ba',
                     image: 'assets/ic_gajang/ba.png',
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/ba.png',
-                        judul: 'Nolès "ba"',
+                        judul: penerjemah.translate('judul_ba_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/ba.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/ba.gif',
-                          judul: 'Nolès "ba"',
-                          modelgambar: 'assets/bg_draw/gajang/ba.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/ba.gif',
+                            judul: penerjemah.translate('judul_ba_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/ba.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'tha',
@@ -395,15 +399,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/tha.png',
-                        judul: 'Nolès "tha"',
+                        judul: penerjemah.translate('judul_tha_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/tha.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/tha.gif',
-                          judul: 'Nolès "tha"',
-                          modelgambar: 'assets/bg_draw/gajang/tha.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/tha.gif',
+                            judul: penerjemah.translate('judul_tha_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/tha.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
                 ListMenu(
                     name: 'nga',
@@ -411,15 +415,15 @@ class ListGajang extends StatelessWidget {
                     navigate: Animasi(
                         warna: Color(0xFFD77FA1),
                         thumbnail: 'assets/ic_gajang/nga.png',
-                        judul: 'Nolès "nga"',
+                        judul: penerjemah.translate('judul_nga_animasi'), // Diubah
                         animasi: 'https://caraka11.web.app/aksara_gajang/nga.gif',
                         navigate: CustomD(
-                          warna: Color(0xFFD77FA1),
-                          thumbnail: 'https://caraka11.web.app/aksara_gajang/nga.gif',
-                          judul: 'Nolès "nga"',
-                          modelgambar: 'assets/bg_draw/gajang/nga.png',
+                            warna: Color(0xFFD77FA1),
+                            thumbnail: 'https://caraka11.web.app/aksara_gajang/nga.gif',
+                            judul: penerjemah.translate('judul_nga_draw'), // Diubah
+                            modelgambar: 'assets/bg_draw/gajang/nga.png',
                         )
-                      ),
+                    ),
                     color: Color(0xFFFD77FA1)),
               ],
             ),

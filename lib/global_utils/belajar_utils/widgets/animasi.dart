@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Animasi extends StatelessWidget {
   final Color warna;
@@ -9,7 +11,9 @@ class Animasi extends StatelessWidget {
   final Widget navigate;
 
   const Animasi(
-      {required this.warna,
+      {
+        super.key,
+      required this.warna,
       required this.thumbnail,
       required this.judul,
       required this.animasi,
@@ -17,6 +21,7 @@ class Animasi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),
@@ -143,7 +148,7 @@ class Animasi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text("Coba' tolès"),
+                          Text(penerjemah.translate('tombolmenggambar')),
                         ],
                       )),
                 ),
@@ -167,7 +172,7 @@ class Animasi extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text('Abhâli'),
+                          Text(penerjemah.translate('tombolback')),
                         ],
                       )),
                 ),

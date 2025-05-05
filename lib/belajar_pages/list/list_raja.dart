@@ -1,20 +1,22 @@
 import 'package:caraka/global_utils/belajar_utils/widgets/animasi.dart';
 import 'package:caraka/global_utils/belajar_utils/drawer/customdraw.dart';
 import 'package:caraka/global_utils/belajar_utils/widgets/listbelajar.dart';
+import 'package:caraka/global_utils/info_utils/lang/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListRaja extends StatelessWidget {
-  const ListRaja({super.key});
+  ListRaja({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final penerjemah = context.watch<AppLocalization>();
     return Scaffold(
-      backgroundColor: const Color(0xFFFF0000),
+      backgroundColor: Color(0xFFFF0000),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
-          child: AppBar(
-            backgroundColor: const Color(0xFFF00000),
-          )),
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(backgroundColor: Color(0xFFF00000)),
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -23,60 +25,62 @@ class ListRaja extends StatelessWidget {
                 Container(
                   height: 120,
                   width: MediaQuery.of(context).size.width,
-                  color: const Color(0xFFFF0000),
+                  color: Color(0xFFFF0000),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 1100,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)),
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20.0, left: 20),
+              padding: EdgeInsets.only(right: 20.0, left: 20),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 56.0),
+                  padding: EdgeInsets.only(top: 56.0),
                   child: Container(
                     height: 133,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: const Color(0xFFF8B195),
-                        borderRadius: BorderRadius.circular(16)),
+                      color: Color(0xFFF8B195),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Padding(
                       padding: EdgeInsets.all(20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(
-                                Icons.navigate_before,
-                                color: Colors.white,
-                              )),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.navigate_before,
+                              color: Colors.white,
+                            ),
+                          ),
                           Text(
                             'Aksara Rajâ',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                            ),
                           ),
-                          SizedBox(
-                            width: 8,
-                          ),
+                          SizedBox(width: 8),
                           Image.asset(
                             'assets/ic_menu/dashboard-raja.png',
                             height: 72,
                             width: 72,
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -84,20 +88,20 @@ class ListRaja extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
+            Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 200,
-                      ),
+                      SizedBox(height: 200),
                       Text(
-                        'Tekan pana kaangguy matao animasi',
+                        penerjemah.translate('petunjukanimasi'),
                         style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.bold),
-                      )
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -107,17 +111,18 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Na.png',
-                    judul: 'Nolès "Na"',
+                    // Judul pakai translate
+                    judul: penerjemah.translate('judul_raja_Na_animasi'),
                     animasi: 'https://caraka11.web.app/aksara_raja/Na.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Na.gif',
-                      judul: 'Nolès "Na"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Na.gif',
+                      // Judul pakai translate
+                      judul: penerjemah.translate('judul_raja_Na_draw'),
                       modelgambar: 'assets/bg_draw/raja/Na.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Sa',
@@ -125,17 +130,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Sa.png',
-                    judul: 'Nolès "Sa"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Sa_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Sa.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Sa.gif',
-                      judul: 'Nolès "Sa"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Sa.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Sa_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Sa.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Pa',
@@ -143,17 +151,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Pa.png',
-                    judul: 'Nolès "Pa"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Pa_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Pa.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Pa.gif',
-                      judul: 'Nolès "Pa"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Pa.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Pa_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Pa.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Ka',
@@ -161,17 +172,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Ka.png',
-                    judul: 'Nolès "Ka"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Ka_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Ka.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Ka.gif',
-                      judul: 'Nolès "Ka"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Ka.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Ka_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Ka.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Ta',
@@ -179,17 +193,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Ta.png',
-                    judul: 'Nolès "Ta"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Ta_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Ta.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Ta.gif',
-                      judul: 'Nolès "Ta"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Ta.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Ta_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Ta.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Nya',
@@ -197,17 +214,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Nya.png',
-                    judul: 'Nolès "Nya"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Nya_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Nya.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Nya.gif',
-                      judul: 'Nolès "Nya"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Nya.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Nya_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Nya.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Ga',
@@ -215,17 +235,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Ga.png',
-                    judul: 'Nolès "Ga"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Ga_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Ga.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Ga.gif',
-                      judul: 'Nolès "Ga"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Ga.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Ga_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Ga.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
                 ListMenu(
                   name: 'Ba',
@@ -233,17 +256,20 @@ class ListRaja extends StatelessWidget {
                   navigate: Animasi(
                     warna: Color(0xFFF8B195),
                     thumbnail: 'assets/ic_raja/Ba.png',
-                    judul: 'Nolès "Ba"',
+                    judul: penerjemah.translate(
+                      'judul_raja_Ba_animasi',
+                    ), // Diubah
                     animasi: 'https://caraka11.web.app/aksara_raja/Ba.gif',
                     navigate: CustomD(
                       warna: Color(0xFFF8B195),
-                      thumbnail:
-                        'https://caraka11.web.app/aksara_raja/Ba.gif',
-                      judul: 'Nolès "Ba"',
+                      thumbnail: 'https://caraka11.web.app/aksara_raja/Ba.gif',
+                      judul: penerjemah.translate(
+                        'judul_raja_Ba_draw',
+                      ), // Diubah
                       modelgambar: 'assets/bg_draw/raja/Ba.png',
-                    )
+                    ),
                   ),
-                  color: Color(0xFFF8B195)
+                  color: Color(0xFFF8B195),
                 ),
               ],
             ),
